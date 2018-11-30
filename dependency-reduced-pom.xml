@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.microsoft.ocp</groupId>
-  <artifactId>BotServiceJMeterPlugin</artifactId>
-  <name>BotFrameworkV3StressClient</name>
-  <version>0.0.1-SNAPSHOT</version>
-  <url>http://maven.apache.org</url>
+  <artifactId>BotServiceStressToolkit</artifactId>
+  <name>BotServiceStressToolkit</name>
+  <version>1.0.0-beta</version>
+  <url>http://github.com/damadei/BotServiceStressToolkit</url>
   <build>
     <plugins>
       <plugin>
@@ -50,18 +50,6 @@
     </repository>
   </repositories>
   <dependencies>
-    <dependency>
-      <groupId>commons-beanutils</groupId>
-      <artifactId>commons-beanutils</artifactId>
-      <version>1.9.3</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
     <dependency>
       <groupId>org.apache.jmeter</groupId>
       <artifactId>ApacheJMeter_core</artifactId>
@@ -291,10 +279,6 @@
         <exclusion>
           <artifactId>freemarker</artifactId>
           <groupId>org.freemarker</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -528,10 +512,6 @@
           <artifactId>freemarker</artifactId>
           <groupId>org.freemarker</groupId>
         </exclusion>
-        <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -759,10 +739,6 @@
         <exclusion>
           <artifactId>freemarker</artifactId>
           <groupId>org.freemarker</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -996,10 +972,6 @@
           <artifactId>freemarker</artifactId>
           <groupId>org.freemarker</groupId>
         </exclusion>
-        <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
-        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -1231,10 +1203,6 @@
         <exclusion>
           <artifactId>freemarker</artifactId>
           <groupId>org.freemarker</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>commons-collections</artifactId>
-          <groupId>commons-collections</groupId>
         </exclusion>
       </exclusions>
     </dependency>
