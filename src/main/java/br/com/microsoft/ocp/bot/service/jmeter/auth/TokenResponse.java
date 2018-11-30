@@ -1,4 +1,4 @@
-package br.com.microsoft.ocp.bot.service.jmeter.bot.auth;
+package br.com.microsoft.ocp.bot.service.jmeter.auth;
 
 import javax.json.bind.annotation.JsonbProperty;
 

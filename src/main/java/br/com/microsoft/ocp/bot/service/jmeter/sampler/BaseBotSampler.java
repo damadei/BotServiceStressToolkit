@@ -41,9 +41,9 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.request.body.RequestBodyEntity;
 
-import br.com.microsoft.ocp.bot.service.jmeter.bot.auth.AuthHelper;
-import br.com.microsoft.ocp.bot.service.jmeter.bot.auth.AuthenticationException;
-import br.com.microsoft.ocp.bot.service.jmeter.bot.auth.TokenResponse;
+import br.com.microsoft.ocp.bot.service.jmeter.auth.AuthHelper;
+import br.com.microsoft.ocp.bot.service.jmeter.auth.AuthenticationException;
+import br.com.microsoft.ocp.bot.service.jmeter.auth.TokenResponse;
 import br.com.microsoft.ocp.bot.service.jmeter.callback.server.HttpResponseException;
 import br.com.microsoft.ocp.bot.service.jmeter.config.BotServiceConfig;
 import br.com.microsoft.ocp.bot.service.jmeter.config.BotServiceSecurityConfig;

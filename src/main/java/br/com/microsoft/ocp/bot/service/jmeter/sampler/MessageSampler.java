@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 
-import br.com.microsoft.ocp.bot.service.jmeter.bot.auth.AuthenticationException;
+import br.com.microsoft.ocp.bot.service.jmeter.auth.AuthenticationException;
 import br.com.microsoft.ocp.bot.service.jmeter.builder.MessageActivityBuilder;
 import br.com.microsoft.ocp.bot.service.jmeter.callback.server.ActivityRequestReply;
 import br.com.microsoft.ocp.bot.service.jmeter.callback.server.HttpResponseException;
