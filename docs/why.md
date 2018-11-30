@@ -1,4 +1,4 @@
-#Why do I need a plugin to test my bots?#
+# Why do I need a plugin to test my bots?
 Bots are async in nature. 
 
 In a very basic scenario, they work as APIs where a channel makes a `POST` to the Bot API, the Bot makes the processing and replies making another `POST` back to the channel. 

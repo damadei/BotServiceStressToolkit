@@ -1,4 +1,4 @@
-#Setup#
+# Setup
 Assuming you have JMeter already installed and running, setting this toolkit up is very simple.
 
 Just download the JAR by clicking [here](http://jmeter.apache.org) and copy it to the folder `%JMETER_HOME\lib\ext`.

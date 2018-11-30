@@ -1,5 +1,5 @@
-#Creating Tests#
-##Config Element > Bot Service: Configuration##
+# Creating Tests
+## Config Element > Bot Service: Configuration
 Beyond JMeter's elements like thread groups and so on, which are beyond the scope of this guide (you can find more info [here](https://jmeter.apache.org/usermanual/get-started.html) if you are a JMeter newbie), the first item you have to add to your test is the Configuration element. 
 
 The configuration element specifies connectivity and identity information used during the tests, describing each field we have:
@@ -34,7 +34,7 @@ The items of the Security Configuration element are:
 * **App Secret**: Application Secret created for the Bot.
 
 
-##Config Element > Bot Service: Security Configuration##
+## Config Element > Bot Service: Security Configuration
 Bots which are deployed to Bot Service will generally require a security token for calls to be made to the APIs.
 
 For these cases, the Security Configuration element allows the specification of the App ID and App Secret so a secure token can be generated and used to make API calls. 
@@ -45,7 +45,7 @@ The items of the Security Configuration element are:
 * **App Secret**: Application Secret created for the Bot.
 
 
-##Sampler > Bot Service: Conversation Update##
+## Sampler > Bot Service: Conversation Update
 The first item to start the conversation is the **Bot Service: Conversation Update**
 
 This element allows one to start a conversation with the Bot and receives the response(s) if any.
@@ -56,7 +56,7 @@ It's comprised of the following fields:
 * **Members added**: Members which were added to the conversation, separated by comma. If you want to add the current user which is random and attached to the thread, the special syntax **${user}** can be used.
 
 
-##Sampler > Bot Service: Message##
+## Sampler > Bot Service: Message
 The **Bot Service: Message** sampler is where things start to get cool. This is where we send messages to the bot and receive responses correlated to the request message.s
 
 This sampler allows one send a message as it .
@@ -72,5 +72,5 @@ It's comprised of the following fields:
 * **# of Responses Expected**: Number of responses expected after the the message is sent. When more than one response messages should be expected, enter the value here and the message text will be concatenated to the response separated by a new line.
 
 
-##Assertion > Response Assertion##
+## Assertion > Response Assertion
 Although not created specifically for the **Response Assertion** assertion allows us to validate if the Bot is responding accordingly to what we expect. Please refer to JMeter documentation on how it can be used by clicking [here](https://jmeter.apache.org/usermanual/component_reference.html#Response_Assertion).
