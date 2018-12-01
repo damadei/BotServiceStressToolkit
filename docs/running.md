@@ -18,6 +18,7 @@ This way, we need a way for a callback from the bot to reach the server started 
 * This scenario runs JMeter in a VM with a public IP what can be an option if it's not possible to use a private IP. 
 * The port that JMeter spins up should be open in the NSG so that Bot Service (by default port 45678).
 * Take into consideration that currently there's no HTTPS support so traffic will flow open what may be a security issue (HTTPS support is on the roadmap).
+* Specify the public IP or hostname as the callback ip/hostname in the callback URL. 
 
 #### Node.js Bots
 * If your bots are built on Node.js, only the private IP option is supported.
@@ -25,6 +26,9 @@ This way, we need a way for a callback from the bot to reach the server started 
 ### Running JMeter in a VM with a Private IP
 * This scenario runs JMeter in a VM with a private IP in a VNET integrated with Bot Service. 
 * We have two options for that, one is integrating the App Service where your Bot runs with a VNet or running Bot Service over an App Service Environment.
+* Specify the private IP or hostname as the callback ip/hostname in the callback URL.
 
-## Running from the command line##
-XXXX
+## Running from the command line
+To run the test in command line mode, what is recommended for serious performance testing, the following command can be run:
+
+`jmeter -n -t <TestFile>.jmx -l <Results>.csv`

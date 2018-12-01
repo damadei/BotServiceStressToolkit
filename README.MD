@@ -15,4 +15,4 @@ Click [HERE](./docs/setup.md) to understand how to setup the toolkit.
 Click [HERE](./docs/creating.md) to learn how to create your Bot stress tests.
 
 ## Running Tests
-Click [HERE](./docs/run.md) to understand how to run your tests locally and from Azure.
+Click [HERE](./docs/running.md) to understand how to run your tests locally and from Azure.
