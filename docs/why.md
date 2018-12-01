@@ -5,7 +5,7 @@ In a very basic scenario, they work as APIs where a channel makes a `POST` to th
 
 The image bellow shows how this works in practice:
 
-[******* IMG *********]
+![How Bots Work](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/06-bots.png)
 
 This asynchronous nature makes hard to use tools like Apache JMeter, without a specialized toolkit like this one, to test Bot applications.
 
