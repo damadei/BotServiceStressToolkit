@@ -6,7 +6,7 @@ Beyond JMeter's elements like thread groups and so on, which are beyond the scop
 
 The configuration element specifies connectivity and identity information used during the tests.
 
-![Config Element > Bot Service: Configuration](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![Config Element > Bot Service: Configuration](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/01-config.png)
 
 
 Describing each field we have:
