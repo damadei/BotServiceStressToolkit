@@ -76,3 +76,5 @@ It's comprised of the following fields:
 
 ## Assertion > Response Assertion
 Although not created specifically for the **Response Assertion** assertion allows us to validate if the Bot is responding accordingly to what we expect. Please refer to JMeter documentation on how it can be used by clicking [here](https://jmeter.apache.org/usermanual/component_reference.html#Response_Assertion).
+
+![Response Assertion](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/05-assertion.PNG)
