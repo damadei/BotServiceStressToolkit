@@ -63,7 +63,7 @@ This sampler allows one send a message as it .
 
 It's comprised of the following fields:
 
-![Sampler > Sampler > Bot Service: Message](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/03-message.PNG)
+![Sampler > Sampler > Bot Service: Message](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/04-message.PNG)
 
 * **Text**: Text of the message to be sent.
 
