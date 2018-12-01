@@ -37,6 +37,8 @@ For these cases, the Security Configuration element allows the specification of 
 
 The items of the Security Configuration element are:
 
+![Config Element > Bot Service: Security Configuration](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/02-security.PNG)
+
 * **App ID**: Application ID created for the Bot.
 * **App Secret**: Application Secret created for the Bot.
 
@@ -48,6 +50,8 @@ This element allows one to start a conversation with the Bot and receives the re
 
 It's comprised of the following fields:
 
+![Sampler > Bot Service: Conversation Update](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/03-convupd.PNG)
+
 * **# of Responses Expected**: Number of responses expected after the conversation is started/updated.
 * **Members added**: Members which were added to the conversation, separated by comma. If you want to add the current user which is random and attached to the thread, the special syntax **${user}** can be used.
 
@@ -58,6 +62,8 @@ The **Bot Service: Message** sampler is where things start to get cool. This is 
 This sampler allows one send a message as it .
 
 It's comprised of the following fields:
+
+![Sampler > Sampler > Bot Service: Message](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/03-message.PNG)
 
 * **Text**: Text of the message to be sent.
 
