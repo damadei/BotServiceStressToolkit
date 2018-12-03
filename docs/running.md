@@ -32,3 +32,5 @@ This way, we need a way for a callback from the bot to reach the server started 
 To run the test in command line mode, what is recommended for serious performance testing, the following command can be run:
 
 `jmeter -n -t <TestFile>.jmx -l <Results>.csv`
+
+Make sure your test is prepared to be run without human intervention by first using the GUI to configure the test and then running it against the .jmx file using the command line.
