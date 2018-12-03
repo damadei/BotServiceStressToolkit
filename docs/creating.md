@@ -1,19 +1,20 @@
 # Creating Tests
-The toolkit integrates natively to Apache JMeter and its elements appear in JMeter sections as native JMeter components.
+The toolkit integrates natively with Apache JMeter. Its elements appear in JMeter sections as native JMeter components with the **Bot Service:** prefix.
+
+We have basically two types of test elements: **Configuration** elements and **Sampler** elements. In the following sections we have a description of when and how to use each of the possible test elements.
 
 ## Config Element > Bot Service: Configuration
-Beyond JMeter's elements like thread groups and so on, which are beyond the scope of this guide (you can find more info [here](https://jmeter.apache.org/usermanual/get-started.html) if you are a JMeter newbie), the first item you have to add to your test is the Configuration element. 
+Beyond JMeter's elements required for every stress tes, like thread groups and so on, which are beyond the scope of this guide (you can find more info [here](https://jmeter.apache.org/usermanual/get-started.html) if you are a JMeter newbie), the first item you have to add to your Bot test is the **Configuration** element. 
 
-The configuration element specifies connectivity and identity information used during the tests.
+The **Configuration** element specifies connectivity and identity information used during the tests.
 
 ![Config Element > Bot Service: Configuration](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/01-config.png)
 
-
 Describing each field we have:
 
-* **Bot URL**: is the endpoint where your bot is deployed. If local will probably be `http://localhost:3978/api/messages`, if already deployed to Bot Service will be `https://<your service name>.azurewebsites.net/api/messages`.
+* **Bot URL**: is the endpoint where your bot is deployed. If your bot is running locally, the value will probably be `http://localhost:3978/api/messages`. However if your Bot is already deployed to Bot Service, this value will be similar to `https://<your service name>.azurewebsites.net/api/messages`.
 
-* **Callback URL**: is the callback URL so your bot can return messages to JMeter. This is the address of the server that JMeter spins up and should be `http://localhost:callback-port` if running locally. `http://VM public IP:callback-port` if running in Azure from a VM pointing to Bot Service not integrated to a VNET or `http://VM private IP:callback-port` if running in Azure from a VM in the same VNET integrated to Bot service or running Bot Service over App Service Environment. If running against Bot Service, running using the integrated VNET or ASE is recommended. 
+* **Callback URL**: is the callback URL so your bot can return messages to JMeter. This is the address of the server that JMeter spins up and should be `http://localhost:callback-port` if running locally. `http://VM public IP:callback-port` if running in Azure from a VM pointing to Bot Service not integrated to a VNET or `http://VM private IP:callback-port` if running in Azure from a VM in the same VNET integrated to Bot service or running Bot Service over App Service Environment. If running against Bot Service, running using the integrated VNET or ASE is recommended to avoid traffic flowing through the internet. 
 
 * **Channel Id**: id of the channel emulated by JMeter. If the value specified is emulator, Bot allows calls without security enabled. If any other value specified, security configuration is mandatory. Security Config is detailed [here](#config-element-bot-service-security-configuration).
 
