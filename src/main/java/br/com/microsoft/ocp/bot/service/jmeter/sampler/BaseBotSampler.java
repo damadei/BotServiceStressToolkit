@@ -63,6 +63,9 @@ public abstract class BaseBotSampler extends AbstractSampler {
 
 	public static final String NEW_LINE = "\r\n";
 
+	public static final String RESPONSE_NUMBER = "RESPONSE %d:";
+	public static final String ATTACHMENT_NUMBER = "ATTACHMENT %d:";
+
 	private static final String TOKEN = "TOKEN";
 
 	private static final String AUTHORIZATION_HEADER = "Authorization";
@@ -192,11 +195,12 @@ public abstract class BaseBotSampler extends AbstractSampler {
 
 	protected String getTextResponse(List<Message> responses) {
 		String respText = "";
+		int i = 1;
 		for (Message message : responses) {
-			respText += message.getText() + NEW_LINE;
+			respText += String.format(RESPONSE_NUMBER, i++) + StringUtils.trimToEmpty(message.getText()) + NEW_LINE;
 		}
 
-		return "TEXT: " + respText;
+		return respText + NEW_LINE;
 	}
 
 	protected String getAttachmentsResponseAsJsonString(List<Message> responses) {
@@ -204,11 +208,12 @@ public abstract class BaseBotSampler extends AbstractSampler {
 
 		Jsonb jsonb = JsonbBuilder.create();
 
+		int i=1;
 		for (Message message : responses) {
 			if (message.getAttachments() != null && message.getAttachments().size() > 0) {
 				for (Attachment attachment : message.getAttachments()) {
 					String attachmentPayload = jsonb.toJson(attachment);
-					attachmentsJsonAsString += "ATTACHMENT: " + attachmentPayload + NEW_LINE;
+					attachmentsJsonAsString += String.format("ATTACHMENT #%d: ", i++) + attachmentPayload + NEW_LINE;
 				}
 			}
 		}
@@ -217,7 +222,7 @@ public abstract class BaseBotSampler extends AbstractSampler {
 			attachmentsJsonAsString = null;
 		}
 
-		return attachmentsJsonAsString;
+		return StringUtils.trimToEmpty(attachmentsJsonAsString + NEW_LINE);
 	}
 
 	public boolean getGenRandomUserIdPerThread() {
