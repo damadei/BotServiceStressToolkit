@@ -3,7 +3,13 @@ This is a toolkit for Apache JMeter to stress test bots built using Azure Bot Bu
 
 [Apache JMeter](http://jmeter.apache.org) is an open source stress testing tool which simplifies authoring, execution and analysis of stress tests using a friendly interface. 
 
-This toolkit leverages JMeter to make it easy to perform stress tests on Bots, something which is not so trivial given the async nature of Bots. It's capable of not only making requests to the bots but also receive the responses, assert it (if needed) and measure things like throughput and latency of your Bot Service applications.
+This toolkit provides the following features:
+* Leverages JMeter to make it easy and visual to perform stress tests on Bots. 
+* Capable of not only making requests to the Bots but also receive the responses.
+* Capable of asserting responses if needed.
+* Capable of loading test data from files or other data sources supported by JMeter (sample [here](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config)).
+* Measures throughput and latency of your Bot Service applications.
+* Able to stress test bots running locally or in Azure Bot Service.
 
 ## Why do I need a toolkit to test my bots?
 Click [HERE](./docs/why.md) to understand why you need a toolkit to test your bots with Apache JMeter. 
