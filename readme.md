@@ -5,10 +5,12 @@ This is a toolkit for Apache JMeter to stress test bots built using Azure Bot Bu
 
 This toolkit provides the following features:
 * Leverages JMeter to make it easy and visual to perform stress tests on Bots. 
-* Capable of not only making requests to the Bots but also receive the responses.
-* Capable of asserting responses if needed.
+* Capable of not only making requests to the Bots but also receiving the responses and correlating it back to the original request, measuring the whole cycle.
+* Capable of asserting responses if needed, by leveraging native JMeter assertions.
 * Capable of loading test data from files or other data sources supported by JMeter (sample [here](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config)).
-* Measures throughput and latency of your Bot Service applications.
+* Capable of displaying test results in graphs, tables and/or saving it to CSV files by leveraging native JMeter capabilities as well.
+* Measures throughput and latency of your Bot Service applications taking consideration of the whole cycle from the request to when the response is received.
+* Able to stress test bots built in Bot Builder SDK v3 or V4.
 * Able to stress test bots running locally or in Azure Bot Service.
 
 ## Why do I need a toolkit to test my bots?
