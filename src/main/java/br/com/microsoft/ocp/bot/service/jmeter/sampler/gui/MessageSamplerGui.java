@@ -15,15 +15,6 @@ import org.apache.jmeter.testelement.TestElement;
 
 import br.com.microsoft.ocp.bot.service.jmeter.sampler.MessageSampler;
 
-/**
- * Example Sampler (non-Bean version)
- *
- * This class is responsible for ensuring that the Sampler data is kept in step
- * with the GUI.
- *
- * The GUI class is not invoked in non-GUI mode, so it should not perform any
- * additional setup that a test would need at run-time
- */
 public class MessageSamplerGui extends AbstractSamplerGui {
 	public static final long serialVersionUID = 240L;
 
