@@ -1,4 +1,21 @@
 package br.com.microsoft.ocp.bot.service.jmeter.sampler;
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -32,7 +49,8 @@ import br.com.microsoft.ocp.bot.service.jmeter.config.BotServiceConfig;
 import br.com.microsoft.ocp.bot.service.jmeter.config.BotServiceSecurityConfig;
 import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Activity;
 import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Attachment;
-import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Message;
+import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.CardAction;
+import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Message;;
 
 public abstract class BaseBotSampler extends AbstractSampler {
 
@@ -46,8 +64,9 @@ public abstract class BaseBotSampler extends AbstractSampler {
 
 	public static final String NEW_LINE = "\r\n";
 
-	public static final String RESPONSE_NUMBER = "RESPONSE %d:";
-	public static final String ATTACHMENT_NUMBER = "ATTACHMENT %d:";
+	public static final String RESPONSE_NUMBER = "RESPONSE %d: ";
+	public static final String ATTACHMENT_NUMBER = "ATTACHMENT %d: ";
+	public static final String SUGGESTED_ACTION_NUMBER = "SUGGESTED ACTION %d: ";
 
 	private static final String TOKEN = "TOKEN";
 
@@ -173,6 +192,12 @@ public abstract class BaseBotSampler extends AbstractSampler {
 			respText += attachmentsText;
 		}
 
+		String suggestedActionsText = getSuggestedActionsResponseAsJsonString(responses);
+
+		if (suggestedActionsText != null) {
+			respText += suggestedActionsText;
+		}
+
 		return respText;
 	}
 
@@ -191,21 +216,46 @@ public abstract class BaseBotSampler extends AbstractSampler {
 
 		Jsonb jsonb = JsonbBuilder.create();
 
-		int i=1;
+		int i = 1;
 		for (Message message : responses) {
 			if (message.getAttachments() != null && message.getAttachments().size() > 0) {
 				for (Attachment attachment : message.getAttachments()) {
 					String attachmentPayload = jsonb.toJson(attachment);
-					attachmentsJsonAsString += String.format("ATTACHMENT #%d: ", i++) + attachmentPayload + NEW_LINE;
+					attachmentsJsonAsString += String.format(ATTACHMENT_NUMBER, i++) + attachmentPayload + NEW_LINE;
 				}
 			}
 		}
 
 		if (attachmentsJsonAsString.length() == 0) {
 			attachmentsJsonAsString = null;
+			return null;
 		}
 
 		return StringUtils.trimToEmpty(attachmentsJsonAsString + NEW_LINE);
+	}
+
+	protected String getSuggestedActionsResponseAsJsonString(List<Message> responses) {
+		String suggestedActionsJsonAsString = "";
+
+		Jsonb jsonb = JsonbBuilder.create();
+
+		int i = 1;
+		for (Message message : responses) {
+			if (message.getSuggestedActions() != null && message.getSuggestedActions().getActions() != null
+					&& message.getSuggestedActions().getActions().size() > 0) {
+				for (CardAction action : message.getSuggestedActions().getActions()) {
+					String payload = jsonb.toJson(action);
+					suggestedActionsJsonAsString += String.format(SUGGESTED_ACTION_NUMBER, i++) + payload + NEW_LINE;
+				}
+			}
+		}
+
+		if (suggestedActionsJsonAsString.length() == 0) {
+			suggestedActionsJsonAsString = null;
+			return null;
+		}
+
+		return StringUtils.trimToEmpty(suggestedActionsJsonAsString + NEW_LINE);
 	}
 
 	public boolean getGenRandomUserIdPerThread() {

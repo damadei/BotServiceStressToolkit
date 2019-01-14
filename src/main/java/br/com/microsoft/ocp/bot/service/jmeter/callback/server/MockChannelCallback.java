@@ -50,16 +50,22 @@ public class MockChannelCallback {
 		log.info(String.format("replyToActivity(conversationId=%s, activityId=%s)", conversationId, activityId));
 		String payload;
 		try {
-			payload = IOUtils.toString(is, Charset.defaultCharset());
+			payload = IOUtils.toString(is, Charset.forName("UTF-8"));
 			Jsonb jsonb = JsonbBuilder.create();
 			Activity activity = jsonb.fromJson(payload, Activity.class);
 
-			activity = ActivityParserFactory.parse(activity.getType(), payload, conversationId, activityId);
-			activity.setReplyToId(activityId);
+			if (activity.getType() == "typing") {
+				log.info(String.format(
+						"Typing response received, ignoging for replyToActivity(conversationId=%s, activityId=%s) [Activity(replyToId=%s)]",
+						conversationId, activityId, activity.getReplyToId()));
+			} else {
+				activity = ActivityParserFactory.parse(activity.getType(), payload, conversationId, activityId);
+				activity.setReplyToId(activityId);
 
-			ActivityRequestReply.getInstance().setResponse(activityId, activity);
-			log.info(String.format("replyToActivity(conversationId=%s, activityId=%s) [Activity(replyToId=%s)]",
-					conversationId, activityId, activity.getReplyToId()));
+				ActivityRequestReply.getInstance().setResponse(activityId, activity);
+				log.info(String.format("replyToActivity(conversationId=%s, activityId=%s) [Activity(replyToId=%s)]",
+						conversationId, activityId, activity.getReplyToId()));
+			}
 
 			return Response.accepted().build();
 		} catch (Exception e) {

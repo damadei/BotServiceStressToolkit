@@ -1,5 +1,6 @@
 package br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Message extends Activity {
@@ -17,7 +18,7 @@ public class Message extends Activity {
 	private List<Attachment> attachments;
 	private String attachmentLayout;
 	private String summary;
-	private List<SuggestedAction> suggestedActions;
+	private SuggestedActions suggestedActions;
 	private String value;
 	private String expiration;
 	private String importance;
@@ -87,11 +88,11 @@ public class Message extends Activity {
 		this.summary = summary;
 	}
 
-	public List<SuggestedAction> getSuggestedActions() {
+	public SuggestedActions getSuggestedActions() {
 		return suggestedActions;
 	}
 
-	public void setSuggestedActions(List<SuggestedAction> suggestedActions) {
+	public void setSuggestedActions(SuggestedActions suggestedActions) {
 		this.suggestedActions = suggestedActions;
 	}
 

@@ -11,6 +11,9 @@ import org.slf4j.LoggerFactory;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+import br.com.microsoft.ocp.bot.service.jmeter.auth.AuthenticationException;
+import br.com.microsoft.ocp.bot.service.jmeter.callback.server.HttpResponseException;
+
 public class HttpTestBean extends BaseBotSampler implements TestBean {
 
 	private static final Logger log = LoggerFactory.getLogger(HttpTestBean.class);
