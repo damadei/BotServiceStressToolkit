@@ -28,7 +28,7 @@ Describing each field we have:
 
 * **Callback Server Listen Port**: Port of the callback server started by JMeter to receive callback messages.
 
-* **Response Timeout**: Time (in seconds) to wait for a response before considering the test step as failed because no response was received.
+* **Response Timeout**: Time (in seconds) to wait for a response before considering the test step as failed because no response was received. Remember that responses are asynchronous and are received by a callback HTTP POST made from the bot to the JMeter internal server that we spin up and this timeout is the amount of time we wait for such messages with the same correlation id.
 
 
 ## Config Element > Bot Service: Security Configuration
