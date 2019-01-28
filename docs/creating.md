@@ -54,7 +54,7 @@ It's comprised of the following fields:
 
 ![Sampler > Bot Service: Conversation Update](https://github.com/damadei/BotServiceStressToolkit/blob/master/docs/imgs/03-convupd.PNG)
 
-* **# of Responses Expected**: Number of responses expected after the conversation is started/updated.
+* **# of Responses Expected**: Number of responses expected after the conversation is started/updated. If your bot welcomes user with one message for example, you should configure this field as 1, if you send 3 messages, put 3 or if your bot stays mute after the conversation is started, leave it as zero.
 
 * **Members added**: Members which were added to the conversation, separated by comma. If you want to add the current user which is random and attached to the thread, the special syntax **${user}** can be used.
 
