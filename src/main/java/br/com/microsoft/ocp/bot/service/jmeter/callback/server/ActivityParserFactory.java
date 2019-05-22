@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Activity;
 import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Conversation;
+import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Event;
 import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Message;
 
 public class ActivityParserFactory {
@@ -34,6 +35,8 @@ public class ActivityParserFactory {
 
 		if (type.equals("message")) {
 			return jsonb.fromJson(jsonPayload, Message.class);
+		}else if (type.equals("event")) {
+			return jsonb.fromJson(jsonPayload, Event.class);
 		}
 
 		return jsonb.fromJson(jsonPayload, Activity.class);
