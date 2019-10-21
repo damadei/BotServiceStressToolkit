@@ -145,7 +145,7 @@
 		<dependency>
 			<groupId>org.apache.jmeter</groupId>
 			<artifactId>ApacheJMeter</artifactId>
-			<version>5.0</version>
+			<version>5.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/br.com.microsoft.ocp.bot.v3.jmeter.sampler/ApacheJMeter_functions -->
