@@ -1,5 +1,6 @@
 package br.com.microsoft.ocp.bot.service.jmeter.sampler;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 
@@ -20,6 +21,9 @@ import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Activity;
 import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Member;
 import br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas.Message;
 
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
+
 public class MessageSampler extends BaseBotSampler {
 
 	private static final Logger log = LoggerFactory.getLogger(MessageSampler.class);
@@ -30,11 +34,13 @@ public class MessageSampler extends BaseBotSampler {
 	public static final String MESSAGE_TEXT = "MESSAGE_TEXT";
 	public static final String MESSAGE_TEXT_FORMAT = "MESSAGE_TEXT_FORMAT";
 	public static final String LOCALE = "LOCALE";
+	public static final String MESSAGE_VALUE = "MESSAGE_VALUE";
 
 	public static final int NUM_OF_EXPECTED_RESPONSES_DEFAULT_VALUE = 1;
 	public static final String MESSAGE_TEXT_DEFAULT_VALUE = "";
 	public static final String MESSAGE_TEXT_FORMAT_DEFAULT_VALUE = "plain";
 	public static final String LOCALE_DEFAULT_VALUE = "en-US";
+	public static final String MESSAGE_VALUE_DEFAULT_VALUE = "{}";
 
 	@Override
 	public SampleResult sample(Entry entry) {
@@ -49,7 +55,7 @@ public class MessageSampler extends BaseBotSampler {
 
 			String conversationId = vars.get(Constants.CONVERSATION_ID);
 
-			Message requestMessage = MessageActivityBuilder.build(conversationId, getMessageText(),
+			Message requestMessage = MessageActivityBuilder.build(conversationId, getMessageText(), getMessageValue(),
 					getMessageTextFormat(), getLocale(), new Member(getFromUser()), new Member(getRecipientMemberId()),
 					getChannelId(), getCallbackUrl());
 
@@ -103,6 +109,11 @@ public class MessageSampler extends BaseBotSampler {
 
 	public int getNumberOfResponseMessagesExpected() {
 		return getPropertyAsInt(NUM_OF_EXPECTED_RESPONSES);
+	}
+
+	private HashMap<String,String> getMessageValue() {
+			Jsonb jsonb = JsonbBuilder.create();
+		    return jsonb.fromJson(getPropertyAsString(MESSAGE_VALUE),new HashMap<String,String>().getClass());
 	}
 
 }

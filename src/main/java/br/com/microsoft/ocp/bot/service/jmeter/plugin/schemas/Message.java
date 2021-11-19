@@ -1,6 +1,7 @@
 package br.com.microsoft.ocp.bot.service.jmeter.plugin.schemas;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Message extends Activity {
@@ -19,7 +20,7 @@ public class Message extends Activity {
 	private String attachmentLayout;
 	private String summary;
 	private SuggestedActions suggestedActions;
-	private String value;
+	private HashMap<String, String> value;
 	private String expiration;
 	private String importance;
 	private String deliveryMode;
@@ -96,11 +97,9 @@ public class Message extends Activity {
 		this.suggestedActions = suggestedActions;
 	}
 
-	public String getValue() {
-		return value;
-	}
+	public HashMap<String, String> getValue() { return value; }
 
-	public void setValue(String value) {
+	public void setValue(HashMap<String, String> value) {
 		this.value = value;
 	}
 

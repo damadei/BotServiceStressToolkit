@@ -24,17 +24,21 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 	private static final String MESSAGE_TEXT_LABEL = "Text:";
 	private static final String MESSAGE_TEXT_FORMAT_LABEL = "Text Format:";
 	private static final String LOCALE_LABEL = "Locale:";
+	private static final String MESSAGE_VALUE_LABEL = "Value:";
 
 	private javax.swing.JLabel messageTextLabel = new JLabel();
 	private javax.swing.JLabel messageTextFormatLabel = new JLabel();
 	private javax.swing.JLabel localeLabel = new JLabel();
 	private javax.swing.JLabel numOfResponsesExpectedLabel = new JLabel();
 	private javax.swing.JScrollPane messageTextAreaScrollPane = new javax.swing.JScrollPane();
+	private javax.swing.JLabel messageValueLabel = new JLabel();
+	private javax.swing.JScrollPane messageValueAreaScrollPane = new javax.swing.JScrollPane();
 
 	private javax.swing.JTextArea messageTextTextArea = new JTextArea();
 	private javax.swing.JTextField messageTextFormatTextField = new JTextField();
 	private javax.swing.JTextField localeTextField = new JTextField();
 	private javax.swing.JTextField numOfResponsesExpectedTextField;
+	private javax.swing.JTextArea messageValueTextArea = new JTextArea();
 
 	public MessageSamplerGui() {
 		init();
@@ -56,6 +60,7 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 		messageTextTextArea.setText(element.getPropertyAsString(MessageSampler.MESSAGE_TEXT));
 		messageTextFormatTextField.setText(element.getPropertyAsString(MessageSampler.MESSAGE_TEXT_FORMAT));
 		localeTextField.setText(element.getPropertyAsString(MessageSampler.LOCALE));
+		messageValueTextArea.setText(element.getPropertyAsString(MessageSampler.MESSAGE_VALUE));
 	}
 
 	/**
@@ -81,6 +86,7 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 		te.setProperty(MessageSampler.MESSAGE_TEXT, messageTextTextArea.getText());
 		te.setProperty(MessageSampler.MESSAGE_TEXT_FORMAT, messageTextFormatTextField.getText());
 		te.setProperty(MessageSampler.LOCALE, localeTextField.getText());
+		te.setProperty(MessageSampler.MESSAGE_VALUE, messageValueTextArea.getText());
 	}
 
 	/*
@@ -102,6 +108,10 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 		messageTextTextArea.setRows(5);
 		messageTextAreaScrollPane.setViewportView(messageTextTextArea);
 
+		messageValueTextArea.setColumns(20);
+		messageValueTextArea.setRows(5);
+		messageValueAreaScrollPane.setViewportView(messageValueTextArea);
+
 		NumberFormat format = new DecimalFormat("#0");
 		NumberFormatter formatter = new NumberFormatter(format);
 		formatter.setValueClass(Integer.class);
@@ -115,6 +125,7 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 		messageTextLabel.setText(MESSAGE_TEXT_LABEL);
 		messageTextFormatLabel.setText(MESSAGE_TEXT_FORMAT_LABEL);
 		localeLabel.setText(LOCALE_LABEL);
+		messageValueLabel.setText(MESSAGE_VALUE_LABEL);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(mainPanel);
 		mainPanel.setLayout(layout);
@@ -131,6 +142,9 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 												javax.swing.GroupLayout.DEFAULT_SIZE,
 												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 										.addComponent(localeLabel, javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(messageValueLabel, javax.swing.GroupLayout.Alignment.LEADING,
+												javax.swing.GroupLayout.DEFAULT_SIZE,
 												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 								.addComponent(numOfResponsesExpectedLabel))
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -142,6 +156,8 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 								.addComponent(messageTextFormatTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addComponent(messageTextAreaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 585,
+										javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addComponent(messageValueAreaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 585,
 										javax.swing.GroupLayout.PREFERRED_SIZE))
 						.addGap(0, 469, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
@@ -164,6 +180,11 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 						.addComponent(numOfResponsesExpectedLabel).addComponent(numOfResponsesExpectedTextField,
 								javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
 								javax.swing.GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(messageValueAreaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGroup(layout.createSequentialGroup().addGap(30, 30, 30).addComponent(messageValueLabel)))
 				.addContainerGap(540, Short.MAX_VALUE)));
 	}
 
@@ -178,6 +199,7 @@ public class MessageSamplerGui extends AbstractSamplerGui {
 		messageTextTextArea.setText(MessageSampler.MESSAGE_TEXT_DEFAULT_VALUE);
 		messageTextFormatTextField.setText(MessageSampler.MESSAGE_TEXT_FORMAT_DEFAULT_VALUE);
 		localeTextField.setText(MessageSampler.LOCALE_DEFAULT_VALUE);
+		messageValueTextArea.setText(MessageSampler.MESSAGE_VALUE_DEFAULT_VALUE);
 	}
 
 	@Override
